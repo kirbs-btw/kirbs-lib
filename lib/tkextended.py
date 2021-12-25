@@ -1,4 +1,5 @@
 import tkinter as tk
+import keyboard
 
 
 def destroyInnerWidgets(frame):
@@ -71,6 +72,36 @@ def separateData(paths):
 
     print("\033[32m" "separateData:    DONE" "\033[0m")
     return pathList
+
+def detectEnter():
+    """
+    detects when enter is pressed
+    prints it in form of the printSome function
+    :return: window
+    """
+    root = tk.Tk()
+
+    canvas = tk.Canvas(root, width = 500, height = 500)
+    canvas.pack()
+
+    keyboard.on_press_key("enter", lambda _: printSome(canvas))
+
+    root.mainloop()
+
+def printSome(canvas):
+    """
+    prints respond in canvas
+
+    :param canvas: canvas where respond is set
+    :return: respond in window 
+    """
+
+    show = tk.Canvas(canvas ,width = 100, height = 100, bg = "#abc123")
+    show.place(relx = 0.1, rely = 0.1)
+
+if __name__ == '__main__':
+    detectEnter()
+
 
 # Bastian Lipka
 # https://github.com/kirbs-btw

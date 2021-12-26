@@ -19,5 +19,12 @@ def randomint(len):
 
     return num
 
+def randList(len, size):
+    arr = []
+    for i in range(size):
+        arr.append(randomint(len))
+    return arr
+
 if __name__ == '__main__':
-    print(randomint(15))
+    print(randomint(5))
+    #print(randList(10, 100000))
